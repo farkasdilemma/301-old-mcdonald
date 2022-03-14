@@ -73,7 +73,7 @@ app.layout = html.Div(children=[
 )
 
 @app.callback(
-    Output('figure-map':'figure'),
+    Output('figure-map':'figure-map'),
     Input('drop-options','value')
 )
 
