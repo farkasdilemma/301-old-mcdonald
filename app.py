@@ -53,11 +53,12 @@ app.layout = html.Div(children=[
 
     html.H1('2011 Agricultural Exports'),
        html.H6('Select an export:'),
-           dcc.Dropdown(
+'''           dcc.Dropdown(
                 id='drop-options',
                 options=list_of_exports,
                 'corn'
             ),
+            '''
         dcc.Graph(
             id='figure-1',
             figure = fig
