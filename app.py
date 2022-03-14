@@ -70,12 +70,13 @@ app.layout = html.Div(children=[
 )
 
 @app.callback(
-    Output('figure-map':'figure-map'),
+    Output('figure-1':'figure'),
     Input('drop-options','value')
 )
 
 def update_output(value):
     return f'You have selected {value} exports in 2011'
+
 
 ############ Deploy
 if __name__ == '__main__':
