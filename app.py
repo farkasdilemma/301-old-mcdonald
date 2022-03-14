@@ -56,9 +56,13 @@ app.layout = html.Div(children=[
            dcc.Dropdown(
                 id='drop-options',
                 options=[{'label': i, 'value': i} for i in list_of_exports],
-                value='corn'
+                'corn'
             ),
-    
+    html.Div(id = 'dropdown-output-container')
+        dcc.Graph(
+            id='figure-1',
+            figure = fig
+            ),
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A("Data Source", href=sourceurl),
@@ -66,8 +70,8 @@ app.layout = html.Div(children=[
 )
 
 @app.callback(
-    Output('figure-map':'figure'),
-    Input('drop-options','options')
+    Output('figure-map':'figure-1'),
+    Input('drop-options','value')
 )
 
 def update_output(value):
