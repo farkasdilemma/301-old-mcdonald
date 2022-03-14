@@ -67,7 +67,7 @@ app.layout = html.Div(children=[
     html.A("Data Source", href=sourceurl),
     ]
 )
-
+'''
 @app.callback(
     Output('figure-map':'figure-1'),
     Input('drop-options','value')
@@ -75,7 +75,7 @@ app.layout = html.Div(children=[
 
 def update_output(value):
     return f'You have selected {value} exports in 2011'
-
+'''
 ############ Deploy
 if __name__ == '__main__':
     app.run_server()
