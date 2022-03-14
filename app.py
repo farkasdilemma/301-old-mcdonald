@@ -11,8 +11,6 @@ list_of_columns =['code', 'state', 'category', 'total exports', 'beef', 'pork', 
        'dairy', 'fruits fresh', 'fruits proc', 'total fruits', 'veggies fresh',
        'veggies proc', 'total veggies', 'corn', 'wheat', 'cotton']
 
-list_of_exports = list_of_columns[3:]
-
 mycolumn='corn'
 myheading1 = f"Wow! That's a lot of {mycolumn}!"
 mygraphtitle = '2011 US Agriculture Exports by State'
@@ -57,31 +55,12 @@ app.layout = html.Div(children=[
         id='figure-1',
         figure=fig
     ),
-'''    dcc.Dropdown(
-               id='drop-options',
-               options=[{'label':i,'value':i} for i in list_of_exports],
-               value = 'corn'
-    ),
-   '''
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A("Data Source", href=sourceurl),
     ]
 )
-'''
-@app.callback(
-    Output('figure-1','figure'),
-    [Input('drop-options','value')]
-)
-
-def update_output(value):
-    return f'You have selected {value} exports in 2011'
-'''
 
 ############ Deploy
 if __name__ == '__main__':
     app.run_server()
-
-    
-
-
