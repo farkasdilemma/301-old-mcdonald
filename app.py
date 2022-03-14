@@ -10,7 +10,7 @@ import pandas as pd
 list_of_columns =['code', 'state', 'category', 'total exports', 'beef', 'pork', 'poultry',
        'dairy', 'fruits fresh', 'fruits proc', 'total fruits', 'veggies fresh',
        'veggies proc', 'total veggies', 'corn', 'wheat', 'cotton']
-list_of_exports = list_of_columns[:, pd.IndexSlicer['total exports':]]
+list_of_exports = list_of_columns[3:]
 
 mycolumn='corn'
 myheading1 = f"Wow! That's a lot of {mycolumn}!"
@@ -55,10 +55,9 @@ app.layout = html.Div(children=[
        html.H6('Select a variable for analysis:'),
            dcc.Dropdown(
                 id='drop-options',
-                options=[{'label': i, 'value': i} for i in list_of_exports],
+                options=[list_of_exports],
                 'corn'
             ),
-    html.Div(id = 'dropdown-output-container')
         dcc.Graph(
             id='figure-1',
             figure = fig
