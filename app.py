@@ -52,31 +52,34 @@ app.title=tabtitle
 app.layout = html.Div(children=[
 
     html.H1('2011 Agricultural Exports'),
-       html.H6('Select an export:'),
-'''           dcc.Dropdown(
-                id='drop-options',
-                options=list_of_exports,
-                'corn'
-            ),
-            '''
+       html.Div([
+           html.H6('Select an export:'),
+           dcc.Dropdown(
+               id='drop-options',
+               options=list_of_exports,
+               value = 'corn'
+           ),
+       ]),
+    html.Div([
         dcc.Graph(
-            id='figure-1',
+            id='figure-map',
             figure = fig
             ),
+    ]),
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A("Data Source", href=sourceurl),
     ]
 )
-'''
+
 @app.callback(
-    Output('figure-map':'figure-1'),
+    Output('figure-map':'figure'),
     Input('drop-options','value')
 )
 
 def update_output(value):
     return f'You have selected {value} exports in 2011'
-'''
+
 ############ Deploy
 if __name__ == '__main__':
     app.run_server()
