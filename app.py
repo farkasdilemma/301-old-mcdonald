@@ -56,7 +56,7 @@ app.layout = html.Div(children=[
            html.H6('Select an export:'),
            dcc.Dropdown(
                id='drop-options',
-               options=list_of_exports,
+               options=[{'label':i,'value':i} for i in list_of_exports],
                value = 'corn'
            ),
        ]),
