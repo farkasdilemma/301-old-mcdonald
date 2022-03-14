@@ -57,23 +57,23 @@ app.layout = html.Div(children=[
         id='figure-1',
         figure=fig
     ),
-    dcc.Dropdown(
+'''    dcc.Dropdown(
                id='drop-options',
                options=[{'label':i,'value':i} for i in list_of_exports],
                value = 'corn'
     ),
-   
+   '''
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A("Data Source", href=sourceurl),
     ]
 )
-
+'''
 @app.callback(
     Output('figure-1','figure'),
     [Input('drop-options','value')]
 )
-'''
+
 def update_output(value):
     return f'You have selected {value} exports in 2011'
 '''
