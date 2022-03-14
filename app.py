@@ -10,6 +10,7 @@ import pandas as pd
 list_of_columns =['code', 'state', 'category', 'total exports', 'beef', 'pork', 'poultry',
        'dairy', 'fruits fresh', 'fruits proc', 'total fruits', 'veggies fresh',
        'veggies proc', 'total veggies', 'corn', 'wheat', 'cotton']
+list_of_exports = list_of_columns[:, pd.IndexSlicer['total exports':]]
 
 mycolumn='corn'
 myheading1 = f"Wow! That's a lot of {mycolumn}!"
@@ -23,7 +24,6 @@ githublink = 'https://github.com/austinlasseter/dash-map-usa-agriculture'
 
 ########## Set up the chart
 
-import pandas as pd
 df = pd.read_csv('assets/usa-2011-agriculture.csv')
 
 fig = go.Figure(data=go.Choropleth(
@@ -50,16 +50,28 @@ app.title=tabtitle
 ########### Set up the layout
 
 app.layout = html.Div(children=[
-    html.H1(myheading1),
-    dcc.Graph(
-        id='figure-1',
-        figure=fig
-    ),
+
+    html.H1('2011 Agricultural Exports, by State'),
+       html.H6('Select a variable for analysis:'),
+           dcc.Dropdown(
+                id='drop-options',
+                options=[{'label': i, 'value': i} for i in list_of_exports],
+                value='corn'
+            ),
+    
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A("Data Source", href=sourceurl),
     ]
 )
+
+@app.callback(
+    Output('figure-map':'figure'),
+    Input('drop-options','options')
+)
+
+def update_output(value):
+    return f'You have selected {value} exports in 2011'
 
 ############ Deploy
 if __name__ == '__main__':
