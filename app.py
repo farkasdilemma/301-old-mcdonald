@@ -32,8 +32,8 @@ df = pd.read_csv('assets/usa-2011-agriculture.csv')
 
 def update_graph(myColumn):
        
-       global myheading1
-       myheading1 = f"Wow! That's a lot of {myColumn}!"
+       #global myheading1
+       #myheading1 = f"Wow! That's a lot of {myColumn}!"
        
        fig = go.Figure(data=go.Choropleth(
               locations=df['code'], # Spatial coordinates
@@ -60,7 +60,7 @@ app.title=tabtitle
 ########### Set up the layout
 
 app.layout = html.Div(children=[
-    html.H1(myheading1),
+    html.H1(mygraphtitle),
     dcc.Dropdown(
         id='my-dropdown',
         options=list_of_exports,
