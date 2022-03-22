@@ -71,6 +71,11 @@ app.layout = html.Div(children=[
     ]
 )
 
+@app.callback(
+       Output('your_input_here', 'options'),
+       Input('your_input_here','value')
+)
+
 ############ Deploy
 if __name__ == '__main__':
     app.run_server()
