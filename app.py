@@ -32,8 +32,9 @@ df = pd.read_csv('assets/usa-2011-agriculture.csv')
 
 def update_graph(myColumn):
        
-       myheading1 = f"Wow! That's a lot of {myColumn}!"
        global myheading1
+       myheading1 = f"Wow! That's a lot of {myColumn}!"
+       
        fig = go.Figure(data=go.Choropleth(
               locations=df['code'], # Spatial coordinates
               z = df[myColumn].astype(float), # Data to be color-coded
