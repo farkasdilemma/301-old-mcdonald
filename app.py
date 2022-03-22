@@ -68,7 +68,7 @@ app.layout = html.Div(children=[
         ),
     dcc.Graph(
         id='figure-1',
-        figure=fig
+        figure=update_graph(mycolumn)
     ),
 
     html.A('Code on Github', href=githublink),
