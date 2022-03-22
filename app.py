@@ -56,7 +56,7 @@ app.title=tabtitle
 app.layout = html.Div(children=[
     html.H1(myheading1),
     dcc.Dropdown(
-        id='your_input_here',
+        id='my_dropdown',
         options=list_of_exports,
         value=list_of_exports[4],
         ),
@@ -72,8 +72,8 @@ app.layout = html.Div(children=[
 )
 
 @app.callback(
-       Output('your_input_here', 'options'),
-       [Input('your_input_here','value')]
+       Output('figure-1', 'figure'),
+       [Input('my_dropdown','value')]
 )
 
 ############ Deploy
