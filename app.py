@@ -56,7 +56,7 @@ app.title=tabtitle
 app.layout = html.Div(children=[
     html.H1(myheading1),
     dcc.Dropdown(
-        id='my_dropdown',
+        id='my-dropdown',
         options=list_of_exports,
         value=list_of_exports[4],
         ),
@@ -64,17 +64,14 @@ app.layout = html.Div(children=[
         id='figure-1',
         figure=fig
     ),
-    html.Div(id='output-container'),
     html.A('Code on Github', href=githublink),
     html.Br(),
-    html.A("Data Source", href=sourceurl)
+    html.A("Data Source", href=sourceurl),
     ]
 )
 
-@app.callback(
-       Output('figure-1', 'figure'),
-       [Input('my_dropdown','value')]
-)
+@app.callback(Output('figure-1', 'figure'),
+       [Input('my-dropdown','value')])
 
 ############ Deploy
 if __name__ == '__main__':
