@@ -31,8 +31,9 @@ import pandas as pd
 df = pd.read_csv('assets/usa-2011-agriculture.csv')
 
 def update_graph(myColumn):
+       
+       global myheading1 = f"Wow! That's a lot of {myColumn}!"
        fig = go.Figure(data=go.Choropleth(
-              myheading1 = f"Wow! That's a lot of {myColumn}!"
               locations=df['code'], # Spatial coordinates
               z = df[myColumn].astype(float), # Data to be color-coded
               locationmode = 'USA-states', # set of locations match entries in `locations`
