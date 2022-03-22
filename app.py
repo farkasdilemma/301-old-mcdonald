@@ -64,12 +64,16 @@ app.layout = html.Div(children=[
         id='figure-1',
         figure=fig
     ),
+    html.Div(id='output-container'),
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A("Data Source", href=sourceurl),
     ]
 )
 
+########## Define Callback
+@app.callback(Output('output-container', 'children'),
+              [Input('your_input_here', 'value')])
 
 
 ############ Deploy
