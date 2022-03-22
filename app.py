@@ -64,6 +64,7 @@ app.layout = html.Div(children=[
         id='figure-1',
         figure=fig
     ),
+
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A("Data Source", href=sourceurl),
@@ -71,7 +72,8 @@ app.layout = html.Div(children=[
 )
 
 @app.callback(Output('figure-1', 'figure'),
-       [Input('my-dropdown','value')])
+       Input('my-dropdown','value')
+       )
 
 ############ Deploy
 if __name__ == '__main__':
