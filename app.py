@@ -55,25 +55,22 @@ app.title=tabtitle
 
 app.layout = html.Div(children=[
     html.H1(myheading1),
+    dcc.Dropdown(
+        id='your_input_here',
+        options=list_of_exports,
+        value=list_of_exports[4],
+        ),
     dcc.Graph(
         id='figure-1',
         figure=fig
     ),
-    dcc.Dropdown(
-        id='your_input_here',
-        options=[
-                {'label':list_of_exports[0], 'value':list_of_exports[0]},
-                {'label':list_of_exports[1], 'value':list_of_exports[1]},
-                {'label':list_of_exports[2], 'value':list_of_exports[2]},
-                {'label':list_of_exports[3], 'value':list_of_exports[3]},
-                ],
-        value=list_of_exports[4],
-        ),
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A("Data Source", href=sourceurl),
     ]
 )
+
+
 
 ############ Deploy
 if __name__ == '__main__':
