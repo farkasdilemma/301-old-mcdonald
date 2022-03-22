@@ -11,6 +11,10 @@ list_of_columns =['code', 'state', 'category', 'total exports', 'beef', 'pork', 
        'dairy', 'fruits fresh', 'fruits proc', 'total fruits', 'veggies fresh',
        'veggies proc', 'total veggies', 'corn', 'wheat', 'cotton']
 
+list_of_exports = ['total exports', 'beef', 'pork', 'poultry',
+       'dairy', 'fruits fresh', 'fruits proc', 'total fruits', 'veggies fresh',
+       'veggies proc', 'total veggies', 'corn', 'wheat', 'cotton']
+
 mycolumn='corn'
 myheading1 = f"Wow! That's a lot of {mycolumn}!"
 mygraphtitle = '2011 US Agriculture Exports by State'
@@ -55,6 +59,16 @@ app.layout = html.Div(children=[
         id='figure-1',
         figure=fig
     ),
+    dcc.Dropdown(
+        id='your_input_here',
+        options=[
+                {'label':list_of_exports[0], 'value':list_of_exports[0]},
+                {'label':list_of_exports[1], 'value':list_of_exports[1]},
+                {'label':list_of_exports[2], 'value':list_of_exports[2]},
+                {'label':list_of_exports[3], 'value':list_of_exports[3]},
+                ],
+        value=list_of_exports[4],
+        ),
     html.A('Code on Github', href=githublink),
     html.Br(),
     html.A("Data Source", href=sourceurl),
