@@ -71,11 +71,6 @@ app.layout = html.Div(children=[
     ]
 )
 
-########## Define Callback
-@app.callback(Output('output-container', 'children'),
-              [Input('your_input_here', 'value')])
-
-
 ############ Deploy
 if __name__ == '__main__':
     app.run_server()
