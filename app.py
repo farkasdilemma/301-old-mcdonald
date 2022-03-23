@@ -23,7 +23,7 @@ mycolorscale = 'ylorrd' # Note: The error message will list possible color scale
 mycolorbartitle = "Millions USD"
 tabtitle = 'Old McDonald'
 sourceurl = 'https://plot.ly/python/choropleth-maps/'
-githublink = 'https://github.com/austinlasseter/dash-map-usa-agriculture'
+githublink = 'https://github.com/farkasdilemma/301-old-mcdonald'
 
 
 ########## Set up the chart
